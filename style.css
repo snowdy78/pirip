@@ -1,0 +1,73 @@
+body{
+    margin:0;
+    background-color: rgb(173, 236, 245);
+}
+#header {
+    display:table table-row;
+}
+.top-menu {
+    display:table-cell;
+    background-color: #7DC9FF;
+    width: 85vw;
+    height: 7vh;
+}
+.logo {
+    display:table-cell;
+    background-color: #0093DD;
+    width:15vw;
+    height:7vh;
+}
+:root {
+    --content-width:100vw;
+}
+#content {
+    display:table table-row;
+    width: var(--content-width);
+    height: 86vh;
+    
+}
+.left-menu {
+    display:table-cell;
+    background-color: #DAFFF6;
+    width:15vw;
+    height:inherit;
+    border: 0px;
+    border-bottom:0.1vh;
+    border-right:0.1vw;
+    border-style: solid;
+    border-color: #b2e4d6;
+}
+.anonymus {
+    display:table-cell;
+    background: url("img/00_brn.jpg") no-repeat;
+    background-color: #DAFFF6;
+    background-size:contain;
+    width:70vw;
+    height:inherit;
+    border: 0px;
+    border-bottom:0.1vh;
+    border-style: solid;
+    border-color: #b2e4d6;
+}
+.right-menu {
+    display:table-cell;
+    background-color:#95ECFF;
+    width:15vw;
+    height:inherit;
+    border: 0px;
+    border-bottom:.1vh;
+    border-left:.1vw;
+    border-style: solid;
+    border-color: #b2e4d6;
+    text-align: -webkit-center;
+}
+.right-menu a {
+    display: block;
+    background-color:rgb(214, 248, 255);
+    font-size: 25px;
+}
+#footer {
+    background-color: #DAFFF6;
+    width:100vw;
+    height:7vh;
+}
