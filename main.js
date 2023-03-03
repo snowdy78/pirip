@@ -85,7 +85,8 @@ function onPeriodClick(period)
     let events = right_menu.getElementsByClassName('events');
     if (events != null)
     {
-        while(events.length != 0) {
+        while(events.length != 0) 
+        {
             events[0].remove();
         }
     }

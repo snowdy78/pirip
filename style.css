@@ -31,7 +31,7 @@ body {
     display:table table-row;
     width: var(--content-width);
     height: 86vh;
-    word-break: break-all;
+    word-break:normal;
 }
 #left-menu {
     display:table-cell;
