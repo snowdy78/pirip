@@ -3,40 +3,63 @@
     src: url(fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 
-body {
+* {
     margin:0;
+    padding:0;
     background-color: rgb(173, 236, 245);
     font-family: 'Inter';
 
 }
+
+:root{
+    --header-width: 100vw;
+    --logo-width: 15vw;
+    --top-menu: calc(var(--header-width) - var(--logo-width));
+    --header-height: 75px;
+}
 #header {
     display:table table-row;
+    width:var(--header-width);
+    height:var(--header-height);
 }
 #top-menu {
     display:table-cell;
+    width:var(--top-menu);
+    height:var(--header-height);
     background-color: #7DC9FF;
-    width: 85vw;
-    height: 7vh;
+    font-size: 40px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 
+                  1px -1px 0 #000, 
+                 -1px 1px 0 #aaa, 
+                  1px 1px 0 #aaa;
+    text-align:-webkit-center;
+    -moz-user-select: none; 
+    -khtml-user-select: none; 
+    user-select: none
 }
 #logo {
     display:table-cell;
     background-color: #0093DD;
-    width:15vw;
-    height:7vh;
+    width:var(--logo-width);
 }
 :root {
-    --content-width:100vw;
+    --content-width:calc(100vh - var(--header-height)*2);
+    --left-menu-width: var(--logo-width);
+    --right-menu-width: calc(var(--top-menu-width)/3);
+    --content-width: calc(100% - var(--left-menu-width) - var(var(--right-menu-width)))
+
 }
 #main-content {
     display:table table-row;
-    width: var(--content-width);
-    height: 86vh;
+    height:var(--content-width);
     word-break:normal;
 }
 #left-menu {
     display:table-cell;
     background-color: #DAFFF6;
-    width:15vw;
+    width:var(--left-menu-width);
+    max-width: 7%;
     height:inherit;
     border: 0px;
     border-bottom:0.1vh;
@@ -60,7 +83,7 @@ body {
     background: url("img/00_brn.jpg") no-repeat;
     background-color: #DAFFF6;
     background-size:cover;
-    width:70vw;
+    width:var(--content-width);
     height:inherit;
     border: 0px;
     border-bottom:0.1vh;
@@ -72,7 +95,8 @@ body {
 #right-menu {
     display:table-cell;
     background-color:#95ECFF;
-    width:15vw;
+    width:var(--right-menu-width);
+    max-width: 15vw;
     height:inherit;
     border: 0px;
     border-bottom:.1vh;
@@ -87,10 +111,12 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
+    width:100%;
+    height:5%;
     border:0;
     padding: 2% 5% 3% 5%;
     background-color:rgb(214, 248, 255);
-    font-size: 25px;
+    font-size: 20px;
     -moz-user-select: none; 
     -khtml-user-select: none; 
     user-select: none
@@ -99,5 +125,5 @@ body {
 #footer {
     background-color: #DAFFF6;
     width:100vw;
-    height:7vh;
+    height:var(--header-height);
 }
