@@ -3,6 +3,11 @@
     src: url(fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(fonts/Comfortaa/Comfortaa.ttf);
+}
+
 * {
     margin:0;
     padding:0;
@@ -16,6 +21,12 @@
     --logo-width: 15vw;
     --top-menu: calc(var(--header-width) - var(--logo-width));
     --header-height: 75px;
+    --main-content-width: 100vw;
+    --main-content-height:calc(100vh - var(--header-height)*2);
+    --left-menu-width: var(--logo-width);
+    --right-menu-width: 300px;
+    --content-width: calc(var(--main-content-width) - var(--left-menu-width) - var(--right-menu-width));
+
 }
 #header {
     display:table table-row;
@@ -33,7 +44,8 @@
                   1px -1px 0 #000, 
                  -1px 1px 0 #aaa, 
                   1px 1px 0 #aaa;
-    text-align:-webkit-center;
+    text-align: center;
+    vertical-align: middle;
     -moz-user-select: none; 
     -khtml-user-select: none; 
     user-select: none
@@ -43,24 +55,18 @@
     background-color: #0093DD;
     width:var(--logo-width);
 }
-:root {
-    --content-width:calc(100vh - var(--header-height)*2);
-    --left-menu-width: var(--logo-width);
-    --right-menu-width: calc(var(--top-menu-width)/3);
-    --content-width: calc(100% - var(--left-menu-width) - var(var(--right-menu-width)))
-
-}
-#main-content {
+#body-content {
     display:table table-row;
-    height:var(--content-width);
+    width: var(--main-content-width);
+    height:var(--main-content-height);
     word-break:normal;
 }
 #left-menu {
     display:table-cell;
     background-color: #DAFFF6;
     width:var(--left-menu-width);
-    max-width: 7%;
     height:inherit;
+    vertical-align: top;
     border: 0px;
     border-bottom:0.1vh;
     border-right:0.1vw;
@@ -70,25 +76,13 @@
 #left-menu .periods {
     background: linear-gradient(0deg, grey 0px, white 2px);
     margin:0;
-    font-size:25px;
+    font-size: 25px;
     padding-top: 3%;
     padding-bottom: 4%;
-    text-align:-webkit-center;
+    text-align:center;
     -moz-user-select: none; 
     -khtml-user-select: none; 
     user-select: none
-}
-#content {
-    display:table-cell;
-    background: url("img/00_brn.jpg") no-repeat;
-    background-color: #DAFFF6;
-    background-size:cover;
-    width:var(--content-width);
-    height:inherit;
-    border: 0px;
-    border-bottom:0.1vh;
-    border-style: solid;
-    border-color: #b2e4d6;
 }
 
 
@@ -96,31 +90,81 @@
     display:table-cell;
     background-color:#95ECFF;
     width:var(--right-menu-width);
-    max-width: 15vw;
     height:inherit;
+    text-align: center; /*centralize blocks of events*/
+    vertical-align: top;
     border: 0px;
     border-bottom:.1vh;
     border-left:.1vw;
     border-style: solid;
     border-color: #b2e4d6;
-    text-align: -webkit-center;
 }
 
 #right-menu .events {
-    display: block;
-    margin-left: 10%;
-    margin-right: 10%;
+    display: inline-block;
     margin-top: 5%;
-    width:100%;
-    height:5%;
+    width:70%;
+    height:70px;
     border:0;
-    padding: 2% 5% 3% 5%;
-    background-color:rgb(214, 248, 255);
+    background-color:rgb(214, 248, 255);    
     font-size: 20px;
+    text-align: center;
     -moz-user-select: none; 
     -khtml-user-select: none; 
-    user-select: none
+    user-select: none;
 }
+
+#content {
+    display:table-cell;
+    width:var(--content-width);
+    height:inherit;
+}
+#content .main-page {
+    display: block;
+    background: url("img/00_brn.jpg") no-repeat;
+    background-size:cover;
+    height:inherit;
+    border: 0px;
+    border-bottom:0.1vh;
+    border-style: solid;
+    border-color: #b2e4d6;
+    text-align: center;
+}
+#content .main-page .element-table {
+    display: table;
+    height: 500px;
+    background:none;
+}
+#content .main-page .element-table .elements {
+    display: table-row table-cell;
+    background:none;
+    vertical-align: top;
+}
+#content .main-page .element-table .elements .element {
+    display: table-cell;
+    font-family: 'Comfortaa';
+    color: black;
+    background-color:darkgray;
+    text-shadow: -1px -1px 0 #fff, 
+                1px -1px 0 #fff, 
+                -1px 1px 0 #fff, 
+                1px 1px 0 #fff;
+    margin-top:100px;
+    width:400px;
+    height:200px;
+    border:4px;
+    border-style:solid;
+    border-radius: 15px;
+    border-color:aqua;
+    text-align: center;
+    vertical-align: middle;
+}
+#content .text-block .text {
+    display: block;
+    margin-left:10%;
+    margin-right:10%;
+}
+
 
 #footer {
     background-color: #DAFFF6;

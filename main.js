@@ -29,7 +29,82 @@ period_to_event[names_of_periods[0]] = [names_of_events[0], names_of_events[1], 
 period_to_event[names_of_periods[1]] = [names_of_events[3]];
 period_to_event[names_of_periods[2]] = [names_of_events[4]];
 period_to_event[names_of_periods[3]] = [names_of_events[5]];
-console.log(period_to_event);
+
+content_main_page_elements = [
+    "Основание Барнаула", 
+    "Плавильный завод", 
+    "Горное училище", 
+    "АГК Музей",
+    "Открытие народного дома"
+];
+
+function generate_content_main_page()
+{
+    let elems = content.getElementsByClassName('text-block');
+    while(elems.length != 0)
+    {
+        elems[0].remove();
+    }
+    let elems2 = content.getElementsByClassName('main-page');
+    while (elems2.length != 0)
+    {
+        elems2[0].remove();
+    }
+    let main_page = document.createElement('div');
+    main_page.className = 'main-page';
+    let element_table = document.createElement('div');
+    element_table.className = 'element-table';
+    let elements1 = document.createElement('div');
+    elements1.className = 'elements';
+
+    for (let i = 0; i < Math.ceil(content_main_page_elements.length/2.); i++)
+    {
+        let element = document.createElement('div');
+        element.className = 'element';
+        element.textContent = content_main_page_elements[i];
+        elements1.appendChild(element);
+    }
+    let elements2 = document.createElement('div');
+    for (let i = Math.ceil(content_main_page_elements.length/2.); i < content_main_page_elements.length; i++)
+    {
+        let element = document.createElement('div');
+        element.className = 'element';
+        element.textContent = content_main_page_elements[i];
+        elements2.appendChild(element);
+    }
+    elements2.className = 'elements';
+    
+    element_table.appendChild(elements1);
+    element_table.appendChild(elements2);
+    main_page.appendChild(element_table);
+    content.appendChild(main_page);
+}
+
+// generates on start
+
+generate_content_main_page();
+
+////////
+
+function generate_content_text_page()
+{
+    let elems = content.getElementsByClassName('text-block');
+    while(elems.length != 0)
+    {
+        elems[0].remove();
+    }
+    let elems2 = content.getElementsByClassName('main-page');
+    while (elems2.length != 0)
+    {
+        elems2[0].remove();
+    }
+    let text_block = document.createElement('div');
+    text_block.className = 'text-block';
+    let text = document.createElement('div');
+    text.className = 'text';
+    text_block.appendChild(text);
+    content.appendChild(text_block);
+}
 
 
 function resetEventsView(excepting_event)
@@ -44,7 +119,7 @@ function resetEventsView(excepting_event)
             event.style.color = '';
         }
     }  
-    content.style.backgroundImage = '';
+    generate_content_main_page();
 }
 
 function resetPeriodsView(excepting_period) 
@@ -57,7 +132,7 @@ function resetPeriodsView(excepting_period)
             period.style.background = '';
         }
     }  
-    content.style.backgroundImage = ''; 
+    generate_content_main_page();
 }
 
 function onEventClick(event)
@@ -69,7 +144,7 @@ function onEventClick(event)
     {
         event.style.backgroundColor = bgcolor;
         event.style.color = color;
-        content.style.backgroundImage = "none"; 
+        generate_content_text_page();
     }
     else 
     {
@@ -101,6 +176,7 @@ function onPeriodClick(period)
             event.textContent = period_to_event[period.textContent][i];
             event.addEventListener('click', () => { onEventClick(event)});
             right_menu.appendChild(event);
+            
         }
     }
     else // on cancel choosing
