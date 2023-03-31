@@ -13,15 +13,14 @@
     padding:0;
     background-color: rgb(173, 236, 245);
     font-family: 'Inter';
-
 }
 
 :root{
-    --header-width: 100vw;
+    --header-width: 100svw;
     --logo-width: 15vw;
     --top-menu: calc(var(--header-width) - var(--logo-width));
     --header-height: 75px;
-    --main-content-width: 100vw;
+    --main-content-width: var(--header-width);
     --main-content-height:calc(100vh - var(--header-height)*2);
     --left-menu-width: var(--logo-width);
     --right-menu-width: 300px;
@@ -32,6 +31,7 @@
 #header {
     display:table table-row;
     width:var(--header-width);
+    max-width: var(--header-width);
     height:var(--header-height);
 }
 #top-menu {
@@ -60,11 +60,12 @@
 #body-content {
     display:table table-row;
     width: var(--main-content-width);
+    max-width:var(--main-content-width);
     height:var(--main-content-height);
     word-break:normal;
 }
 #left-menu {
-    display:table-cell;
+    display: table-cell;
     background-color: #DAFFF6;
     width:var(--left-menu-width);
     height:inherit;
@@ -124,14 +125,16 @@
 #content {
     display:table-cell;
     width:var(--content-width);
-    height:inherit;
+    max-width:var(--content-width);
 }
 #content .main-page {
     display: inline-block;
     background: url("img/00_brn.jpg") no-repeat;
     background-size:cover;
+    padding-top: 10%;
     width:inherit;
-    height:inherit;
+    height:max-content;
+    min-height:var(--main-content-height);
     border: 0px;
     border-bottom:0.1vh;
     border-style: solid;
@@ -142,7 +145,6 @@
     background:none;
     max-height: var(--main-content-height);
     margin: auto;
-    padding-top:10%;
 }
 #content .main-page .element-table .element-row {
     display: table-row;
@@ -203,7 +205,10 @@
 
 
 #footer {
+    position:fixed;
     background-color: #DAFFF6;
     width:100vw;
+    max-width:100vw;
     height:var(--header-height);
+
 }
