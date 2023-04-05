@@ -57,26 +57,26 @@ period_to_event[names_of_periods[1]] = [names_of_events[3]];
 period_to_event[names_of_periods[2]] = [names_of_events[4]];
 period_to_event[names_of_periods[3]] = [names_of_events[5]];
 
-content_main_page_elements = [
-    "Основание Барнаула", 
-    "Плавильный завод", 
-    "Горное училище", 
-    "АГК Музей",
-    "Открытие народного дома"
-];
+content_main_page_elements = []
+for (let i = 0; i < 6; i++)
+{
+    content_main_page_elements[i] = names_of_events[i]; 
+}
+
+function free(arr)
+{
+    while (arr.length != 0)
+    {
+        arr[0].remove();
+    }
+}
 
 function generate_content_main_page()
 {
     let elems = content.getElementsByClassName('text-block');
-    while(elems.length != 0)
-    {
-        elems[0].remove();
-    }
+    free(elems)
     let elems2 = content.getElementsByClassName('main-page');
-    while (elems2.length != 0)
-    {
-        elems2[0].remove();
-    }
+    free(elems2)
     let main_page = document.createElement('div');
     main_page.className = 'main-page';
     let element_table = document.createElement('div');
@@ -95,6 +95,8 @@ function generate_content_main_page()
             let element = document.createElement('div');
             element.className = 'element-block';
             element.textContent = content_main_page_elements[i];
+            let path =  `url("img/${i + 1}.png")`;
+            element.style.backgroundImage = path;
             element.addEventListener('click', () => {onEventClick(element)});
             cell.appendChild(element);
             row.appendChild(cell);
@@ -111,23 +113,15 @@ function generate_content_main_page()
 }
 
 // generates on start
-
 generate_content_main_page();
-
 ////////
 
 function generate_content_text_page(event)
 {
     let elems = content.getElementsByClassName('text-block');
-    while(elems.length != 0)
-    {
-        elems[0].remove();
-    }
+    free(elems)
     let elems2 = content.getElementsByClassName('main-page');
-    while (elems2.length != 0)
-    {
-        elems2[0].remove();
-    }
+    free(elems2)
     let text_block = document.createElement('div');
     text_block.className = 'text-block';
     let description = document.createElement('div');
