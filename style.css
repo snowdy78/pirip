@@ -17,7 +17,7 @@
 
 :root{
     --header-width: 100vw;
-    --logo-width: 15vw;
+    --logo-width: 350px;
     --top-menu-width: calc(var(--header-width) - var(--logo-width));
     --header-height: 75px;
     --main-content-width: var(--header-width);
@@ -52,9 +52,17 @@
 #logo {
     display:table-cell;
     background-color: #0093DD;
-    background-image: url("img/logo.jpg") ;
-
-    width:var(--logo-width);
+    width: var(--logo-width);
+    max-width: var(--logo-width);
+}
+#logo .image {
+    width: 250px;
+    height: var(--header-height);
+    background:none;
+    background-image: url("img/logo.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: calc((var(--logo-width) - 250px)/2);
 }
 #body-content {
     display:table table-row;
@@ -63,7 +71,6 @@
 #left-menu {
     display: table-cell;
     background-color: #DAFFF6;
-    width:var(--left-menu-width);
     height:inherit;
     vertical-align: top;
     border: 0px;
@@ -75,6 +82,7 @@
 #left-menu .periods {
     background: linear-gradient(0deg, grey 0px, white 2px);
     margin:0;
+    width:var(--left-menu-width);
     font-size: 25px;
     padding-top: 3%;
     padding-bottom: 4%;
