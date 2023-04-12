@@ -54,6 +54,7 @@
     background-color: #0093DD;
     width: var(--logo-width);
     max-width: var(--logo-width);
+    cursor:pointer;
 }
 #logo .image {
     width: 250px;
@@ -71,6 +72,7 @@
 #left-menu {
     display: table-cell;
     background-color: #DAFFF6;
+
     height:inherit;
     vertical-align: top;
     border: 0px;
@@ -131,6 +133,7 @@
 #content {
     display:table-cell;
     width:var(--content-width);
+    
     max-width:var(--content-width);
 }
 #content .main-page {
@@ -192,30 +195,33 @@
 }
 
 #content .text-block {
-
     min-height:var(--main-content-height);
+
+    font-size:30px;
+    padding-left:10%;
+    padding-right:10%;
+    width: calc(var(--content-width) - 10% - 10%);
+    text-align:left;
+    word-break:break-all;
 }
 
-#content .text-block .header {
-    display: block;
+#content .text-block h2 {
     text-align: center;
     font-weight: bold;
     font-size:40px;
     line-height: 50px;
     line-break: 100px;
+    word-break: normal;
 }
 
 
-#content .text-block .text {
-    display: block;
+#content .text-block p {
+   
     font-size:30px;
-    margin-left:20%;
-    margin-right:20%;
-    width: calc(var(--content-width) - 20% - 20%);
     text-align:justify;
     justify-content: center;
+    word-break: normal;
 }
-
 
 #footer {
     display:table table-row;

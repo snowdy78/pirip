@@ -7,7 +7,7 @@
     </head>
     <body>
         <div id="header">
-            <div id="logo">
+            <div id="logo" onclick="window.location.href = 'main.html';">
                 <div class="image">
 
                 </div>
@@ -21,7 +21,9 @@
                 
             </div>
             <div id="content">
-                
+                <div class="text-block">
+                    <h2>Открытие народного дома</h2>
+                </div>
             </div>
             <div id="right-menu">
                 
@@ -34,9 +36,9 @@
         </div>
     </body>
     <script src="main.js">
-        
+
     </script>
     <script>
-        generate_content_main_page();
+        chooseEvent(page_names[4]);
     </script>
 </html>
