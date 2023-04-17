@@ -35,7 +35,7 @@
     display:table-cell;
     width:var(--top-menu-width);
     height:var(--header-height);
-    background-color: #7DC9FF;
+    background: linear-gradient(0deg, rgb(90, 90, 90) 0px, #7DC9FF 3px);
     font-size: 40px;
     color: white;
     text-shadow: -1px -1px 0 #000, 
@@ -82,7 +82,7 @@
     border-color: #b2e4d6;
 }
 #left-menu .periods {
-    background: linear-gradient(0deg, grey 0px, white 2px);
+    background: linear-gradient(0deg, grey 0px, white 3px);
     margin:0;
     width:var(--left-menu-width);
     font-size: 25px;
@@ -197,7 +197,7 @@
 #content .text-block {
     min-height:var(--main-content-height);
 
-    font-size:30px;
+    font-size:20px;
     padding-left:10%;
     padding-right:10%;
     width: calc(var(--content-width) - 10% - 10%);
@@ -217,7 +217,7 @@
 
 #content .text-block p {
    
-    font-size:30px;
+    font-size:20px;
     text-align:justify;
     justify-content: center;
     word-break: normal;
