@@ -33,7 +33,10 @@ var page_names = [
     "Первый ВУЗ Барнаула",
     "АГМУ",
     "Барнаульская ТЭЦ-2",
-    "Издательский дом Алтапресс"
+    "Издательский дом Алтапресс",
+    "Итоги 2020 года в цифрах",
+    "Итоги 2021 года",
+    "Итоги 2022. Главные барнаульские события"
 ];
 
 var current_period = null;
@@ -43,7 +46,7 @@ period_to_event = {};
 period_to_event[names_of_periods[0]] = [page_names[0], page_names[1], page_names[2], page_names[6], page_names[7]];
 period_to_event[names_of_periods[1]] = [page_names[3], page_names[8], page_names[9], page_names[10]];
 period_to_event[names_of_periods[2]] = [page_names[4], page_names[11], page_names[12], page_names[13], page_names[14], page_names[5], page_names[15]];
-period_to_event[names_of_periods[3]] = [page_names[000]]; //Прикол. Надо дополнять
+period_to_event[names_of_periods[3]] = [page_names[16], [page_names[17]], [page_names[18]]]; // Перезаполнить последнюю страницу.
 
 content_main_page_elements = []
 for (let i = 0; i < 6 && i < page_names.length; i++)
