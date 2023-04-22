@@ -71,6 +71,85 @@ function find(arr, object)
     }
     return false;
 }
+
+function generate_search_panel() 
+{
+    let search = document.createElement('input');
+    search.id = 'search-panel';
+    search.type = 'text';
+    search.placeholder = 'Поиск';
+
+    let search_block = document.getElementById('search-block');
+    let content = search_block.getElementsByClassName('content')[0];
+    let lupa = document.createElement('div');
+    lupa.className = 'image';
+    content.appendChild(lupa);
+    content.appendChild(search);
+
+    
+}
+function searchFilter()
+{
+    let val = this.value.trim();
+    let searchItems = document.querySelectorAll('#search-list .event');
+    if (val != '')
+    {
+        searchItems.forEach(function(elem){
+            if (elem.innerText.search(val) == -1) 
+            {
+                elem.style.display = "none";
+            }
+            else 
+            {
+                elem.style.display = '';
+            }
+        });
+    } 
+    else
+    {
+        searchItems.forEach(function(elem) {
+            elem.style.display = '';
+        });
+    }
+}
+function remove_search_list()
+{
+    let search_list = document.getElementById('search-list');
+    search_panel.removeEventListener('focusout', remove_search_list);
+    if (search_list != null)
+        search_list.remove();
+}
+function generate_search_list()
+{
+    let content = search_block.getElementsByClassName('content')[0];
+    let search_list = document.createElement('div');
+    search_list.id = 'search-list';
+    for (let i = 0; i < page_names.length; i++)
+    {
+        let option = document.createElement('div');
+        option.className = 'event';
+        option.textContent = page_names[i];
+        option.addEventListener('mousedown', () => {window.location.href = option.textContent + ".html";});
+        option.innerHTML = option.innerHTML + "<br>";
+        search_list.appendChild(option);
+    }
+    search_panel.addEventListener('focusout', remove_search_list);
+    content.appendChild(search_list);
+}
+
+
+generate_search_panel();
+
+let search_panel = document.getElementById('search-panel');
+let search_block = document.getElementById('search-block');
+let search_content = search_block.getElementsByClassName('content')[0];
+
+search_panel.addEventListener('focus', generate_search_list);
+
+document.querySelector('#search-panel').oninput = searchFilter;
+
+
+
 function generate_content_main_page()
 {
     let main_page = document.createElement('div');
