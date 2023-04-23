@@ -7,6 +7,10 @@
     font-family: 'Comfortaa';
     src: url(fonts/Comfortaa/Comfortaa.ttf);
 }
+@font-face {
+    font-family: 'RoboMono';
+    src: url(fonts/RoboMono/RobotoMono-Italic-VariableFont_wght.ttf);
+}
 
 * {
     margin:0;
@@ -54,6 +58,7 @@
     display:table-cell;
     background-color: #0093DD;
     width: 20vw;
+    vertical-align: middle;
     cursor:pointer;
 }
 #logo .image {
@@ -81,13 +86,14 @@
 #search-block .content {
     display:flex;
     background:none;
+    width:80%;
     height: 40px;
     justify-content: center;
     align-items: center;
 }
 
 #search-panel {
-    width: 80%;
+    width:fit-content;
     height: inherit;
     border:1px;
     border-style:solid;
@@ -116,34 +122,35 @@
 }
 #search-list
 {
-    width:calc(20vw*0.8);
+    width:200px;
     position:absolute;
     top: calc((var(--header-height) + 40px)/2);
     background-color:#fff;
     border:1px solid;
-    border-radius: 20px;
-    padding-left:20px;
-    padding-top:10px;
+    
     text-align: left;
     
 }
-#search-list .event
+#search-list option
 {
     display:flex;
-    height:max-content;
-    background:none;
     justify-content: left;
     align-items: center;
+    word-break: break-all;
+    height:fit-content;
+    background:none;
     color:#000;
     border: 0;
     border-style:solid;
     border-bottom:1px;
     border-color:#000;
-    -moz-user-select: none; 
-    -khtml-user-select: none; 
     user-select: none;
+    cursor:pointer;
 }
-
+#search-list option:hover
+{
+    background-color:rgb(236, 236, 236);
+}
 #body-content {
     display:table table-row;
     word-break:normal;
@@ -178,6 +185,7 @@
     background-color:#95ECFF;
     width:20vw;
     height:inherit;
+    border:0;
     text-align: center; /*centralize blocks of events*/
     vertical-align: top;
     border-bottom:.1vh;
@@ -305,4 +313,33 @@
     background:none;
     width:var(--header-width);
     height: var(--header-height);
+    text-align: center;
+    vertical-align: middle;
+}
+.contact {
+    display:inline-block;
+    width:40px;
+    height:40px;
+    background:none;
+    background-size:cover;
+    margin-right:1%;
+}
+#footer-discord {
+    background-image:url(img/discord.png);
+}
+#footer-telegram {
+    background-image: url(img/telegram.png);
+}
+#footer-mail {
+    font-family: 'RoboMono';
+    width:max-content;
+    height:fit-content;
+    font-weight: bold;
+}
+#footer-whatsapp {
+    background-image:url(img/whatsapp.png);
+}
+
+#footer-vk {
+    background-image:url(img/vk.png);
 }

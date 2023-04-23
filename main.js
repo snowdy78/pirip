@@ -91,7 +91,7 @@ function generate_search_panel()
 function searchFilter()
 {
     let val = this.value.trim();
-    let searchItems = document.querySelectorAll('#search-list .event');
+    let searchItems = document.querySelectorAll('#search-list option');
     if (val != '')
     {
         searchItems.forEach(function(elem){
@@ -122,17 +122,19 @@ function remove_search_list()
 function generate_search_list()
 {
     let content = search_block.getElementsByClassName('content')[0];
-    let search_list = document.createElement('div');
+    let search_list = document.createElement('select');
+    search_list.size = '5';
     search_list.id = 'search-list';
+    search_list.name = "select";
+    search_list.multiple = 'multiple';
     for (let i = 0; i < page_names.length; i++)
     {
-        let option = document.createElement('div');
-        option.className = 'event';
+        let option = document.createElement('option');
         option.textContent = page_names[i];
         option.addEventListener('mousedown', () => {window.location.href = option.textContent + ".html";});
-        option.innerHTML = option.innerHTML + "<br>";
         search_list.appendChild(option);
     }
+    search_list[0]
     search_panel.addEventListener('focusout', remove_search_list);
     content.appendChild(search_list);
 }
